@@ -50,6 +50,70 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const Card(
+              elevation: 5,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Este es un Card', style: TextStyle(fontSize: 18)),
+                    SizedBox(height: 10),
+                    Text('Puedes poner cualquier widget dentro de un Card.'),
+                  ],
+                ),
+              ),
+            ),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  print('InkWell presionado');
+                },
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text('Toca aquí'),
+                ),
+              ),
+            ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Este es un Column:'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('Item 1'),
+                    SizedBox(width: 10),
+                    Text('Item 2'),
+                  ],
+                ),
+              ],
+            ),
+            Center(
+              child: Container(
+                padding: EdgeInsets.all(16.0),
+                color: Colors.amber,
+                child: Text('Este es un Container'),
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                children: const <Widget>[
+                  ListTile(
+                    leading: Icon(Icons.map),
+                    title: Text('Mapa'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.photo_album),
+                    title: Text('Álbum'),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.phone),
+                    title: Text('Teléfono'),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
