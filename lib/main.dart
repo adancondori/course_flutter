@@ -1,4 +1,6 @@
+import 'package:course_flutter/broadcast_example.dart';
 import 'package:course_flutter/home_page.dart';
+import 'package:course_flutter/notification_system.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: NotificationSystem(),
     );
   }
 }
