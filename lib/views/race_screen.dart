@@ -71,7 +71,7 @@ class _RaceScreenState extends State<RaceScreen> {
                           Positioned(
                             left: car.position.toDouble(),
                             child: Image.asset(
-                              'assets/images/${car.name.toLowerCase()}.png', // Suponemos que los nombres de imagen son car1.png, car2.png
+                              'assets/images/${car.name.toLowerCase()}.png', // que los nombres de imagen son car1.png, car2.png
                               height: 50,
                             ),
                           ),
