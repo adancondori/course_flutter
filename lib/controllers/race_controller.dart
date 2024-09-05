@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:course_flutter/models/car.dart';
 
 class RaceController {
@@ -9,6 +8,8 @@ class RaceController {
       StreamController<List<Car>>.broadcast();
   final Random _random = Random();
   bool _raceFinished = false;
+  Timer? _raceTimer;
+  Timer? _weatherTimer;
 
   RaceController({required this.cars});
 
@@ -16,11 +17,12 @@ class RaceController {
 
   double _width = 0.0;
 
-  void startRace(double width) {
+  void startRace(double width, {int interval = 200}) {
     _width = width;
     _raceFinished = false;
     _resetCarPositions();
-    Timer.periodic(Duration(milliseconds: 200), (timer) {
+
+    _raceTimer = Timer.periodic(Duration(milliseconds: interval), (timer) {
       if (_raceFinished) {
         timer.cancel();
       } else {
@@ -46,14 +48,49 @@ class RaceController {
   void _checkRaceStatus() {
     for (var car in cars) {
       if (car.position >= _width - 160) {
-        // Suponiendo que 300 es el borde de la pantalla
         _raceFinished = true;
+        _sendBroadcast(car.name);
         break;
       }
     }
   }
 
+  void simulateWeatherConditions() {
+    _weatherTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_raceFinished) {
+        timer.cancel();
+      } else {
+        int weatherEffect = _random.nextInt(20) - 10; // Simula viento, etc.
+        for (var car in cars) {
+          car.position += weatherEffect; // Ajusta la velocidad por el clima
+        }
+        _raceController.sink.add(List<Car>.from(cars));
+      }
+    });
+  }
+
+  Future<int> calculateReward(Car car) async {
+    return await Future.delayed(Duration(seconds: 1), () {
+      int reward = (car.position / _width * 100).toInt();
+      return reward;
+    });
+  }
+
+  void awardRewards() async {
+    for (var car in cars) {
+      int reward = await calculateReward(car);
+      print("Car ${car.name} has earned $reward points!");
+    }
+  }
+
+  void _sendBroadcast(String carName) {
+    print("Broadcast: Car $carName has won the race!");
+    // En un entorno real, aquí enviarías el broadcast con un Intent
+  }
+
   void dispose() {
+    _raceTimer?.cancel();
+    _weatherTimer?.cancel();
     _raceController.close();
   }
 }

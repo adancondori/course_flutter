@@ -14,6 +14,7 @@ class _RaceScreenState extends State<RaceScreen> {
   final List<Car> _cars = [
     Car(id: 1, name: 'pegazo'),
     Car(id: 2, name: 'rayo'),
+    Car(id: 3, name: 'torci'),
   ];
 
   @override
@@ -28,10 +29,17 @@ class _RaceScreenState extends State<RaceScreen> {
     super.dispose();
   }
 
-  void _startRace() {
+  void _startRace({int interval = 200}) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    _raceController.startRace(width, interval: interval);
+  }
+
+  void _startRaceWithWeather() {
     final size = MediaQuery.of(context).size;
     final width = size.width;
     _raceController.startRace(width);
+    _raceController.simulateWeatherConditions();
   }
 
   @override
@@ -42,9 +50,19 @@ class _RaceScreenState extends State<RaceScreen> {
       ),
       body: Column(
         children: [
-          ElevatedButton(
-            onPressed: _startRace,
-            child: Text("Start Race"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () => _startRace(interval: 100),
+                child: Text("Quick Race"),
+              ),
+              SizedBox(width: 10),
+              ElevatedButton(
+                onPressed: _startRaceWithWeather,
+                child: Text("Race with Weather"),
+              ),
+            ],
           ),
           Expanded(
             child: StreamBuilder<List<Car>>(
