@@ -67,7 +67,7 @@ class _RaceScreenState extends State<RaceScreen> {
           color: Colors.green[200],
           // Alternativamente, puedes usar una imagen de fondo
           // image: DecorationImage(
-          //   image: AssetImage('assets/images/race_background.png'),
+          //   image: AssetImage('assets/images/race_track.jpg'),
           //   fit: BoxFit.cover,
           // ),
         ),

@@ -8,7 +8,6 @@ class RacePresenter {
     Horse(id: 3, name: 'Storm', nameImg: '3.png'),
     Horse(id: 4, name: 'Blaze', nameImg: '4.png'),
     Horse(id: 5, name: 'Pikachu', nameImg: '5.png'),
-    Horse(id: 6, name: 'Pepecoin', nameImg: '5.png'),
   ];
 
   late RaceController _controller;

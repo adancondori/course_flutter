@@ -53,7 +53,7 @@ class RaceController {
   }
 
   void simulateWeatherConditions() {
-    _weatherTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _weatherTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_allHorsesFinished()) {
         timer.cancel();
       } else {
