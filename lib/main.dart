@@ -1,22 +1,22 @@
-import 'package:course_flutter/views/race_screen.dart';
+import 'package:course_flutter/presentation/race_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const HorseRaceApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HorseRaceApp extends StatelessWidget {
+  const HorseRaceApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Horse Race',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: RaceScreen(),
+      home: const RaceScreen(),
     );
   }
 }
