@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_simple_navigation/constants/constants.dart';
+import 'package:course_flutter/constants/constants.dart';
 
 DialogRoute<dynamic> myCustomDialogRoute(
     {required String title,

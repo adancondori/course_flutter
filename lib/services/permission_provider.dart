@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'package:android_intent_plus/android_intent.dart';
+import 'package:course_flutter/widgets/custom_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:my_simple_navigation/constants/constants.dart';
-import 'package:my_simple_navigation/widgets/custom_dialog.dart';
+import 'package:course_flutter/constants/constants.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class PermissionProvider {

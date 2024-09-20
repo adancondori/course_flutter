@@ -2,7 +2,7 @@
 # See https://dart.dev/tools/pub/glossary#lockfile
 packages:
   android_intent_plus:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: android_intent_plus
       sha256: "007703c1b2cac7ca98add3336b98cffa4baa11d5133cc463293dba9daa39cdf6"
@@ -92,13 +92,13 @@ packages:
     source: sdk
     version: "0.0.0"
   geolocator:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: geolocator
-      sha256: "6cb9fb6e5928b58b9a84bdf85012d757fd07aab8215c5205337021c4999bad27"
+      sha256: "0ec58b731776bc43097fcf751f79681b6a8f6d3bc737c94779fe9f1ad73c1a81"
       url: "https://pub.dev"
     source: hosted
-    version: "11.1.0"
+    version: "13.0.1"
   geolocator_android:
     dependency: transitive
     description:
@@ -127,10 +127,10 @@ packages:
     dependency: transitive
     description:
       name: geolocator_web
-      sha256: "49d8f846ebeb5e2b6641fe477a7e97e5dd73f03cbfef3fd5c42177b7300fb0ed"
+      sha256: "2ed69328e05cd94e7eb48bb0535f5fc0c0c44d1c4fa1e9737267484d05c29b5e"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.0"
+    version: "4.1.1"
   geolocator_windows:
     dependency: transitive
     description:
@@ -139,6 +139,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.3"
+  go_router:
+    dependency: "direct main"
+    description:
+      name: go_router
+      sha256: "2ddb88e9ad56ae15ee144ed10e33886777eb5ca2509a914850a5faa7b52ff459"
+      url: "https://pub.dev"
+    source: hosted
+    version: "14.2.7"
   google_maps:
     dependency: transitive
     description:
@@ -148,7 +156,7 @@ packages:
     source: hosted
     version: "8.0.0"
   google_maps_flutter:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: google_maps_flutter
       sha256: "2e302fa3aaf4e2a297f0342d83ebc5e8e9f826e9a716aef473fe7f404ec630a7"
@@ -188,7 +196,7 @@ packages:
     source: hosted
     version: "0.5.10"
   google_maps_routes:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: google_maps_routes
       sha256: "6bfff0deefe49f1e1d0d12f0b119bb56afb772469160b88d2b725d85048b8ddf"
@@ -219,8 +227,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  logging:
+    dependency: transitive
+    description:
+      name: logging
+      sha256: "623a88c9594aa774443aa3eb2d41807a48486b5613e67599fb4c41c0ad47c340"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   maps_toolkit:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: maps_toolkit
       sha256: "277877f9505208acacd2a0794ef190e836a5ffee58ebc8efc5b9ca8de50e3e2f"
@@ -252,7 +268,7 @@ packages:
     source: hosted
     version: "1.9.0"
   permission_handler:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: permission_handler
       sha256: "18bf33f7fefbd812f37e72091a15575e72d5318854877e0e4035a24ac1113ecb"
@@ -323,6 +339,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
+  sensors_plus:
+    dependency: "direct main"
+    description:
+      name: sensors_plus
+      sha256: "90f2d38471ca75625f6569d1044d783e0add43548692fbe6e53b008a38a8313a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.1"
+  sensors_plus_platform_interface:
+    dependency: transitive
+    description:
+      name: sensors_plus_platform_interface
+      sha256: b6cacfe243cbeb16403ba688cb0d7054ad4dccb946dcd1254bebdf345fe4b187
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
