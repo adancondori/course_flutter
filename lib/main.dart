@@ -1,22 +1,48 @@
-import 'package:course_flutter/home_page.dart';
+import 'package:course_flutter/menu/menu_screen.dart';
+import 'package:course_flutter/pages/homepage.dart';
+import 'package:course_flutter/sensor/sensor.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({Key? key}) : super(key: key);
+
+  // Definir las rutas para las diferentes pantallas
+  final GoRouter _router = GoRouter(
+    routes: [
+      GoRoute(
+        path: '/',
+        builder: (context, state) => MenuScreen(),
+      ),
+      GoRoute(
+        path: '/screenA',
+        builder: (context, state) => MyHomePage(),
+      ),
+      GoRoute(
+        path: '/screenB',
+        builder: (context, state) => Sensor(),
+      ),
+      // GoRoute(
+      //   path: '/screenC',
+      //   builder: (context, state) => ScreenC(),
+      // ),
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp.router(
+      routerConfig: _router,
+      title: 'Flutter Navigation Example',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        colorSchemeSeed: const Color(0x9f4376f8),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
