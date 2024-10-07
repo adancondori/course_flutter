@@ -30,7 +30,13 @@ class MenuScreen extends StatelessWidget {
               onPressed: () {
                 context.go('/screenC'); // Navega a la Pantalla C
               },
-              child: Text('Ir a Pantalla C'),
+              child: Text('JUEGO'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go('/screenD'); // Navega a la Pantalla C
+              },
+              child: Text('JUEGO2'),
             ),
           ],
         ),

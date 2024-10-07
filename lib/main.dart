@@ -1,6 +1,8 @@
+import 'package:course_flutter/labyrinth/ui/screens/home_screen.dart';
 import 'package:course_flutter/menu/menu_screen.dart';
 import 'package:course_flutter/pages/homepage.dart';
 import 'package:course_flutter/sensor/sensor.dart';
+import 'package:course_flutter/snake/ui/snake_game_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -27,10 +29,14 @@ class MyApp extends StatelessWidget {
         path: '/screenB',
         builder: (context, state) => Sensor(),
       ),
-      // GoRoute(
-      //   path: '/screenC',
-      //   builder: (context, state) => ScreenC(),
-      // ),
+      GoRoute(
+        path: '/screenC',
+        builder: (context, state) => HomeScreen(),
+      ),
+      GoRoute(
+        path: '/screenD',
+        builder: (context, state) => SnakeGamePage(),
+      ),
     ],
   );
 
