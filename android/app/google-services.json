@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "68463350426",
+    "project_id": "docencia-2024",
+    "storage_bucket": "docencia-2024.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:68463350426:android:2b81edee03d14e73ad0523",
+        "android_client_info": {
+          "package_name": "com.example.course_flutter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq9mxbg46jOw97ufnaX5kmtC1hYVTUVpk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
