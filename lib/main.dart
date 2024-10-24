@@ -1,22 +1,35 @@
-import 'package:course_flutter/screens/home_screen.dart';
+// main.dart
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:course_flutter/application/use_cases/user_use_cases.dart';
+import 'package:course_flutter/infrastructure/repositories_impl/firebase_user_repository.dart';
+import 'package:course_flutter/presentation/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+
+  final userRepository = FirebaseUserRepository(FirebaseFirestore.instance);
+
+  runApp(MyApp(userRepository: userRepository));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final FirebaseUserRepository userRepository;
 
-  // This widget is the root of your application.
+  const MyApp({required this.userRepository, Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: HomeScreen(
+        getUsers: GetUsers(userRepository),
+        deleteUser: DeleteUser(userRepository),
+        updateUser: UpdateUser(userRepository),
+        addUser: AddUser(userRepository),
+      ),
     );
   }
 }
