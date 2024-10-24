@@ -35,7 +35,9 @@ class _AddNewUserScreenState extends State<AddNewUserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Add/Edit User')),
+      appBar: AppBar(
+          title:
+              widget.user != null ? Text('Edit User') : Text('Add New User')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
