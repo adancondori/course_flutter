@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  void goNextPokemon() {
+  void goCounter() {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => CounterPage()),
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
               style: TextStyle(fontSize: 22, color: Colors.white),
             ),
             onPressed: () {
-              goNextPokemon();
+              goCounter();
             },
           )
         ],

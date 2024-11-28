@@ -35,18 +35,21 @@ class CounterPage extends StatelessWidget {
       floatingActionButton:
           Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
         FloatingActionButton(
+          heroTag: "btn1",
           onPressed: () => counterBloc.add(CounterDecrement()),
           tooltip: 'Decrement',
           child: const Icon(Icons.remove),
         ),
         const SizedBox(width: 16),
         FloatingActionButton(
+          heroTag: "btn2",
           onPressed: () => counterBloc.add(CounterReset()),
           tooltip: 'Reset',
           child: const Icon(Icons.refresh),
         ),
         const SizedBox(width: 16),
         FloatingActionButton(
+          heroTag: "btn3",
           onPressed: () => counterBloc.add(CounterIncrement()),
           tooltip: 'Increment',
           child: const Icon(Icons.add),
