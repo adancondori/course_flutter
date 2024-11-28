@@ -1,6 +1,7 @@
 import 'package:course_flutter/home_page.dart';
 import 'package:course_flutter/page_counter/bloc/counter_bloc.dart';
 import 'package:course_flutter/page_counter/counter_page.dart';
+import 'package:course_flutter/page_post/bloc/post_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,17 +14,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    // return MaterialApp(
+    //   title: 'Flutter Demo',
+    //   theme: ThemeData(
+    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    //     useMaterial3: true,
+    //   ),
+    //   home: BlocProvider(
+    //     create: (context) => CounterBloc(),
+    //     child: CounterPage(),
+    //   ),
+    //   // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    // );
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => CounterBloc()),
+        BlocProvider(create: (context) => PostBloc()),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: MyHomePage(
+          title: 'Flutter Demo Home Page',
+        ),
       ),
-      home: BlocProvider(
-        create: (context) => CounterBloc(),
-        child: CounterPage(),
-      ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }

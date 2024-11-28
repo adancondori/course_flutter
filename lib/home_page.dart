@@ -1,4 +1,7 @@
+import 'package:course_flutter/page_counter/counter_page.dart';
+import 'package:course_flutter/page_post/home_posts.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -10,69 +13,67 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void goNextScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePosts()),
+    );
   }
 
-  void _decrementCounter() {
-    setState(() {
-      if (_counter > 0) {
-        _counter--;
-      }
-    });
-  }
-
-  void _resetCounter() {
-    setState(() {
-      _counter = 0;
-    });
+  void goNextPokemon() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CounterPage()),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        centerTitle: true,
+        title: const Text("Bloc Demo APP"),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: Row(
+      body: draw_screen(context, 0),
+    );
+  }
+
+  Widget draw_screen(BuildContext context, int counter) {
+    return Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          FloatingActionButton(
-            onPressed: _decrementCounter,
-            tooltip: 'Decrement',
-            child: const Icon(Icons.remove),
+        children: [
+          MaterialButton(
+            color: const Color.fromARGB(255, 11, 32, 223),
+            elevation: 0.0,
+            height: 50,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            child: const Text(
+              "Next Screen",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            ),
+            onPressed: () {
+              goNextScreen();
+            },
           ),
-          const SizedBox(width: 16),
-          FloatingActionButton(
-            onPressed: _resetCounter,
-            tooltip: 'Reset',
-            child: const Icon(Icons.refresh),
+          const SizedBox(
+            height: 20,
           ),
-          const SizedBox(width: 16),
-          FloatingActionButton(
-            onPressed: _incrementCounter,
-            tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          ),
+          MaterialButton(
+            color: const Color.fromARGB(255, 11, 32, 223),
+            elevation: 0.0,
+            height: 50,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(8))),
+            child: const Text(
+              "Next Screen",
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            ),
+            onPressed: () {
+              goNextPokemon();
+            },
+          )
         ],
       ),
     );
